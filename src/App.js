@@ -1,5 +1,7 @@
+import MenuTable from "./components/menu/menu-table";
+
 function App() {
-  return <h1>Hello World!</h1>;
+  return <MenuTable />;
 }
 
 export default App;
