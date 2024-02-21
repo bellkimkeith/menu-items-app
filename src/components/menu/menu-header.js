@@ -1,5 +1,19 @@
 import { Table } from "flowbite-react";
 
+const headers = [
+  "Name",
+  "Cost",
+  "Category",
+  "Price",
+  "Stock",
+  "Options",
+  "Actions",
+];
+
+const Headers = headers.map((header) => (
+  <Table.HeadCell>{header}</Table.HeadCell>
+));
+
 function MenuHeader() {
   return (
     <Table.Head>
@@ -9,9 +23,7 @@ function MenuHeader() {
       <Table.HeadCell>Price</Table.HeadCell>
       <Table.HeadCell>Stock</Table.HeadCell>
       <Table.HeadCell>Options</Table.HeadCell>
-      <Table.HeadCell>
-        <span className="sr-only">Edit</span>
-      </Table.HeadCell>
+      <Table.HeadCell>Actions</Table.HeadCell>
     </Table.Head>
   );
 }
