@@ -7,7 +7,7 @@ function ItemDropdown() {
   return (
     <Dropdown
       label=""
-      placement="bottom"
+      placement="auto"
       dismissOnClick={true}
       renderTrigger={() => (
         <svg

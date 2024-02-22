@@ -1,23 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  checkedCategories: [],
+  value: [],
+  checkedCategoryState: [],
 };
 
 export const categoriesSlice = createSlice({
   name: "categories",
   initialState,
-  reducers: {
-    addCategories: (state, action) => {
-      console.log(action.payload);
-    },
-    deleteCategories: (state, action) => {
-      console.log(action.payload);
-    },
-  },
+  reducers: {},
 });
 
 // Action creators are generated for each case reducer function
-export const { addCategories, deleteCategories } = categoriesSlice.actions;
+export const {} = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;
