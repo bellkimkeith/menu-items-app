@@ -11,7 +11,7 @@ function MenuList() {
           Beef Tapa
         </Table.Cell>
         <Table.Cell>50</Table.Cell>
-        <Table.Cell>Breakfast</Table.Cell>
+        <Table.Cell>Meal</Table.Cell>
         <Table.Cell>89</Table.Cell>
         <Table.Cell>25</Table.Cell>
         <Table.Cell>N/A</Table.Cell>
@@ -34,13 +34,13 @@ function MenuList() {
       </Table.Row>
       <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-          Blue Lemonade
+          Nachos
         </Table.Cell>
         <Table.Cell>20</Table.Cell>
         <Table.Cell>Drink</Table.Cell>
         <Table.Cell>35</Table.Cell>
         <Table.Cell>50</Table.Cell>
-        <Table.Cell>Venti</Table.Cell>
+        <Table.Cell>Large</Table.Cell>
         <Table.Cell>
           <ItemDropdown />
         </Table.Cell>

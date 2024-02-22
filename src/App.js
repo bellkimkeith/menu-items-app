@@ -1,7 +1,9 @@
-import { Card, DarkThemeToggle, Flowbite, Label } from "flowbite-react";
+import { Card, DarkThemeToggle, Flowbite } from "flowbite-react";
 import MenuTable from "./components/menu/menu-table";
-import AddButton from "./components/ui/add-button";
 import CheckboxDropdown from "./components/ui/checkbox-dropdown";
+import AddItemModal from "./components/ui/add-item-modal";
+
+import React from "react";
 
 function App() {
   return (
@@ -12,9 +14,9 @@ function App() {
             Menu Items
           </h5>
           <div className="flex flex-row items-center space-x-4">
-            <AddButton />
+            <AddItemModal />
             <CheckboxDropdown />
-            <DarkThemeToggle className="border hover:text-black dark:hover:text-white" />
+            <DarkThemeToggle className="hover:text-black dark:hover:text-white py-3 px-3 border-2 border-gray-200 dark:border-gray-600" />
           </div>
         </div>
         <div className="flow-root border rounded-md border-gray-300">

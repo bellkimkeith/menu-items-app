@@ -2,6 +2,8 @@
 
 import { Dropdown, Label } from "flowbite-react";
 import { HiOutlineFilter, HiChevronDown } from "react-icons/hi";
+import CategoriesList from "./categories-list";
+import { useDispatch } from "react-redux";
 
 function CheckboxDropdown() {
   return (
@@ -20,11 +22,27 @@ function CheckboxDropdown() {
       )}
     >
       <Dropdown.Header>
-        <span>Category</span>
+        <span className="block text-sm">Category</span>
       </Dropdown.Header>
-      <Dropdown.Item>Cat 1</Dropdown.Item>
-      <Dropdown.Item>Cat 2</Dropdown.Item>
-      <Dropdown.Item>Cat 3</Dropdown.Item>
+      <CategoriesList />
+      {/* <Dropdown.Item>
+        <div className="space-x-2">
+          <Checkbox id="cat1" className="dark:border-white" color="gray" />
+          <Label htmlFor="cat1">Category 1</Label>
+        </div>
+      </Dropdown.Item>
+      <Dropdown.Item>
+        <div className="space-x-2">
+          <Checkbox id="cat1" className="dark:border-white" color="gray" />
+          <Label htmlFor="cat1">Category 2</Label>
+        </div>
+      </Dropdown.Item>
+      <Dropdown.Item>
+        <div className="space-x-2">
+          <Checkbox id="cat1" className="dark:border-white" color="gray" />
+          <Label htmlFor="cat1">Category 3</Label>
+        </div>
+      </Dropdown.Item> */}
     </Dropdown>
   );
 }
