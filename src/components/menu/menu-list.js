@@ -2,36 +2,15 @@
 
 import { Table } from "flowbite-react";
 import ItemDropdown from "../ui/item-dropdown";
+import { useSelector } from "react-redux";
+import { menuItemsList } from "../../features/items/itemsSlice";
 
 function MenuList() {
-  const items = {
-    "-Ngmfldkvnajdkgutopw": {
-      category: "Meal",
-      cost: 60,
-      id: "-Ngmfldkvnajdkgutopw",
-      name: "beef tapa",
-      option: "N/A",
-      price: 89,
-      stock: 24,
-    },
-    "-Nqedflothgndkapblgy": {
-      category: "Snack",
-      cost: 40,
-      id: "-Nqedflothgndkapblgy",
-      name: "french fries",
-      option: "Medium",
-      price: 60,
-      stock: 14,
-    },
-  };
-
-  // console.log(...Object.values(items[0]));
-
-  const itemsValues = [...Object.values(items)];
+  const menuItems = useSelector(menuItemsList);
 
   return (
     <Table.Body className="divide-y">
-      {itemsValues.map((item, index) => (
+      {menuItems.map((item, index) => (
         <Table.Row
           key={index}
           className="bg-white dark:border-gray-700 dark:bg-gray-800"

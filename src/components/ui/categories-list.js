@@ -1,14 +1,9 @@
 import { Checkbox, Dropdown, Label } from "flowbite-react";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { categoriesList } from "../../features/categories/categoriesSlice";
 
 function CategoriesList() {
-  //get from database later
-  const categoriesMock = ["Meal", "Snack", "Dessert"];
-  const [categories, setCategories] = useState(categoriesMock);
-
-  function handleCheckboxOnChange(category, isChecked, index) {
-    console.log(category, isChecked, index);
-  }
+  const categories = useSelector(categoriesList);
 
   const DropdownItemList = () =>
     categories.map((category, index) => (
@@ -18,10 +13,7 @@ function CategoriesList() {
             id={category}
             className="dark:border-white"
             color="gray"
-            value={category}
-            onChange={(e) =>
-              handleCheckboxOnChange(e.target.value, e.target.checked, index)
-            }
+            onChange={(e) => console.log(e.target)}
           />
           <Label htmlFor={category}>{category}</Label>
         </div>

@@ -3,8 +3,9 @@
 import { Button, Label, Modal, Select, TextInput } from "flowbite-react";
 import { useState } from "react";
 import AddButton from "./add-button";
+import { useFormik } from "formik";
 
-function AddItemModal() {
+function AddItemModal_() {
   const [openModal, setOpenModal] = useState(false);
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
@@ -118,6 +119,67 @@ function AddItemModal() {
               </Button>
             </div>
           </div>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}
+
+function AddItemModal() {
+  const [openModal, setOpenModal] = useState(false);
+  const { values, handleSubmit, handleChange } = useFormik({
+    initialValues: {
+      firstName: "",
+      name: "",
+    },
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
+  function onCloseModal() {
+    setOpenModal(false);
+  }
+
+  return (
+    <>
+      <AddButton onClick={() => setOpenModal(true)} />
+      <Modal show={openModal} size="xl" onClose={onCloseModal} popup>
+        <Modal.Header />
+        <Modal.Body>
+          <form onSubmit={handleSubmit}>
+            <div className="space-y-4">
+              <div>
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  onChange={handleChange}
+                  value={values.firstName}
+                />
+              </div>
+              {/* flowbite */}
+              <div>
+                <div className="mb-2 block">
+                  <Label htmlFor="name" value="Name" />
+                </div>
+                <TextInput
+                  id="name"
+                  name="name"
+                  type="text"
+                  onChange={handleChange}
+                  value={values.name}
+                />
+              </div>
+              {/* flowbite */}
+              <div className="w-full">
+                <Button className="min-w-full" type="submit">
+                  Submit
+                </Button>
+              </div>
+            </div>
+          </form>
         </Modal.Body>
       </Modal>
     </>
