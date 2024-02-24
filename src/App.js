@@ -3,9 +3,21 @@ import MenuTable from "./components/menu/menu-table";
 import CheckboxDropdown from "./components/ui/checkbox-dropdown";
 import AddItemModal from "./components/ui/add-item-modal";
 
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCategories } from "./features/categories/categoriesSlice";
+import { setOptions } from "./features/options/optionsSlice";
 
 function App() {
+  const categories = ["Meal", "Snack", "Dessert"];
+  const options = ["Small", "Medium", "Large", "N/A"];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCategories(categories));
+    dispatch(setOptions(options));
+  }, []);
+
   return (
     <Flowbite>
       <Card className="min-w-full min-h-lvh rounded-none">

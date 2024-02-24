@@ -5,16 +5,17 @@ import MenuList from "./menu-list";
 import MenuHeader from "./menu-header";
 import { onValue, query, ref } from "firebase/database";
 import { db } from "../../utils/firebase";
-import { setItems } from "../../features/items/itemsSlice";
-import { useDispatch } from "react-redux";
+import { menuItemsList, setItems } from "../../features/items/itemsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function MenuTable() {
   const recentPostsRef = query(ref(db, "items"));
   const dispatch = useDispatch();
   onValue(recentPostsRef, (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
-    setItems(dispatch(setItems(Object.values(data))));
+    if (data !== null) {
+      setItems(dispatch(setItems(Object.values(data))));
+    }
   });
 
   return (

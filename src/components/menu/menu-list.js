@@ -8,6 +8,21 @@ import { menuItemsList } from "../../features/items/itemsSlice";
 function MenuList() {
   const menuItems = useSelector(menuItemsList);
 
+  if (menuItems.length === 0) {
+    return (
+      <Table.Body className="divide-y">
+        <Table.Row
+          key="fallback"
+          className="bg-white dark:border-gray-700 dark:bg-gray-800"
+        >
+          <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+            No items yet.
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    );
+  }
+
   return (
     <Table.Body className="divide-y">
       {menuItems.map((item, index) => (
@@ -18,11 +33,12 @@ function MenuList() {
           <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white capitalize">
             {item.name}
           </Table.Cell>
-          <Table.Cell>{item.cost}</Table.Cell>
+          <Table.Cell>{item.option}</Table.Cell>
           <Table.Cell>{item.category}</Table.Cell>
+          <Table.Cell>{item.cost}</Table.Cell>
           <Table.Cell>{item.price}</Table.Cell>
           <Table.Cell>{item.stock}</Table.Cell>
-          <Table.Cell>{item.option}</Table.Cell>
+
           <Table.Cell>
             <ItemDropdown />
           </Table.Cell>

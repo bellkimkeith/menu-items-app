@@ -18,11 +18,11 @@ function MenuHeader() {
   return (
     <Table.Head>
       <Table.HeadCell>Name</Table.HeadCell>
-      <Table.HeadCell>Cost</Table.HeadCell>
+      <Table.HeadCell>Options</Table.HeadCell>
       <Table.HeadCell>Category</Table.HeadCell>
+      <Table.HeadCell>Cost</Table.HeadCell>
       <Table.HeadCell>Price</Table.HeadCell>
       <Table.HeadCell>Stock</Table.HeadCell>
-      <Table.HeadCell>Options</Table.HeadCell>
       <Table.HeadCell>Actions</Table.HeadCell>
     </Table.Head>
   );

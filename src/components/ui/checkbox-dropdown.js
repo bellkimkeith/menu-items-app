@@ -3,17 +3,8 @@
 import { Dropdown, Label } from "flowbite-react";
 import { HiOutlineFilter, HiChevronDown } from "react-icons/hi";
 import CategoriesList from "./categories-list";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { setCategories } from "../../features/categories/categoriesSlice";
 
 function CheckboxDropdown() {
-  const categoriesList = ["Meal", "Snack", "Dessert"];
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(setCategories(categoriesList));
-  }, []);
   return (
     <Dropdown
       label=""
