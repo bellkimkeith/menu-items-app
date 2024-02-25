@@ -28,7 +28,7 @@ function App() {
           <div className="flex flex-row items-center space-x-4">
             <AddItemModal />
             <CheckboxDropdown />
-            <DarkThemeToggle className="hover:text-black dark:hover:text-white py-3 px-3 border-2 border-gray-200 dark:border-gray-600" />
+            <DarkThemeToggle className="hover:text-black dark:hover:text-white py-1 pl-1.5 sm:py-1 sm:pl-1.5 border-2 border-gray-200 dark:border-gray-600 size-9 md:size-12 md:py-3 md:px-3 sm:size-9 lg:size-13" />
           </div>
         </div>
         <div className="flow-root border rounded-md border-gray-300">
