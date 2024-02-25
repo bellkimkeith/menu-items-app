@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Modal } from "flowbite-react";
+import { Button, Label, Modal } from "flowbite-react";
 import { useState } from "react";
 import { HiTrash, HiOutlineExclamationCircle } from "react-icons/hi";
 
@@ -11,7 +11,7 @@ function DeleteItemModal({ deleteItemHandler }) {
     <>
       <Button size="xs" onClick={() => setOpenModal(true)} color="failure">
         <HiTrash className="mr-1 h-4 w-4" />
-        Delete
+        <Label className="hidden sm:block text-white">Delete</Label>
       </Button>
       <Modal
         show={openModal}

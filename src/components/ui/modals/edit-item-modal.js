@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Modal } from "flowbite-react";
+import { Button, Label, Modal } from "flowbite-react";
 import { useState } from "react";
 import { Form, Formik } from "formik";
 import ItemSchema from "../../../schemas";
@@ -46,7 +46,9 @@ function EditItemModal({ itemData }) {
     <>
       <Button size="xs" onClick={() => setOpenModal(true)} color="light">
         <HiOutlinePencil className="mr-1 h-4 w-4" />
-        Edit
+        <Label className="hidden sm:block text-gray-500 hover:text-black">
+          Edit
+        </Label>
       </Button>
       <Modal show={openModal} size="xl" onClose={onCloseModal} popup>
         <Modal.Header />
