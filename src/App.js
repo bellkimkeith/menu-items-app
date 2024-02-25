@@ -24,7 +24,7 @@ function App() {
     toast.error(
       <div className="flex flex-row space-x-3">
         <FaTrash className="h-5 w-5 text-red-600 dark:red-cyan-500" />
-        <Label>Item Deleted</Label>
+        <Label className="text-black dark:text-black">Item Deleted</Label>
       </div>
     );
   }

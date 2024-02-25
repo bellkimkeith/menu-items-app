@@ -44,7 +44,9 @@ function EditItemModal({ itemData }) {
     toast.info(
       <div className="flex flex-row space-x-3">
         <FaEdit className="h-5 w-5 text-cyan-600 dark:text-cyan-500" />
-        <Label>Edit Item Successfull</Label>
+        <Label className="text-black dark:text-black">
+          Edit Item Successfull
+        </Label>
       </div>
     );
   }

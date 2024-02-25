@@ -48,7 +48,9 @@ function AddItemModal() {
     toast.success(
       <div className="flex flex-row space-x-3">
         <FaCheck className="h-5 w-5 text-green-600 dark:text-green-500" />
-        <Label>Add Item Successfull</Label>
+        <Label className="text-black dark:text-black">
+          Add Item Successfull
+        </Label>
       </div>
     );
     actions.resetForm();
