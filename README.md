@@ -36,6 +36,8 @@ To Visit App:
 
 - Firebase Realtime Database (https://firebase.google.com/docs/database/web/start)
 
+- Sonner (https://sonner.emilkowal.ski/)
+
 ## Reflections
 
 - Improved my understading with state management both local(useState) and global(redux toolkit).

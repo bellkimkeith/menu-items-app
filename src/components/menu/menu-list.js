@@ -8,13 +8,14 @@ import { db } from "../../utils/firebase";
 import DeleteItemModal from "../ui/modals/delete-item-modal";
 import EditItemModal from "../ui/modals/edit-item-modal";
 
-function MenuList() {
+function MenuList({ showToast }) {
   const menuItems = useSelector(menuItemsList);
   const dispatch = useDispatch();
 
   async function deleteItemHandler(id) {
     await remove(ref(db, `items/${id}`));
     dispatch(deleteItem(id));
+    showToast();
   }
 
   if (menuItems.length === 0) {

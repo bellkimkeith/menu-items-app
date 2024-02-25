@@ -9,7 +9,7 @@ import { setItems } from "../../features/items/itemsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { filter } from "../../features/categories/categoriesSlice";
 
-function MenuTable() {
+function MenuTable({ showToast }) {
   const recentPostsRef = query(ref(db, "items"));
   const dataFilter = useSelector(filter);
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function MenuTable() {
     <div className="overflow-x-auto">
       <Table hoverable>
         <MenuHeader />
-        <MenuList />
+        <MenuList showToast={showToast} />
       </Table>
     </div>
   );

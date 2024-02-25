@@ -9,10 +9,12 @@ import CustomSelect from "../../form/custom-select";
 import { useDispatch, useSelector } from "react-redux";
 import { categoriesList } from "../../../features/categories/categoriesSlice";
 import { optionsList } from "../../../features/options/optionsSlice";
-import { child, push, ref, set, update } from "firebase/database";
+import { ref, update } from "firebase/database";
 import { db } from "../../../utils/firebase";
 import { HiOutlinePencil } from "react-icons/hi";
 import { editItem } from "../../../features/items/itemsSlice";
+import { Toaster, toast } from "sonner";
+import { FaEdit } from "react-icons/fa";
 
 function EditItemModal({ itemData }) {
   const [openModal, setOpenModal] = useState(false);
@@ -39,7 +41,12 @@ function EditItemModal({ itemData }) {
   async function onSubmit(values) {
     await editItemData(values);
     dispatch(editItem({ id: itemData.id, ...values }));
-    setOpenModal(false);
+    toast.info(
+      <div className="flex flex-row space-x-3">
+        <FaEdit className="h-5 w-5 text-cyan-600 dark:text-cyan-500" />
+        <Label>Edit Item Successfull</Label>
+      </div>
+    );
   }
 
   return (
@@ -95,6 +102,7 @@ function EditItemModal({ itemData }) {
               </Form>
             )}
           </Formik>
+          <Toaster richColors position="bottom-center" />
         </Modal.Body>
       </Modal>
     </>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Modal } from "flowbite-react";
+import { Button, Label, Modal, Toast } from "flowbite-react";
 import { useState } from "react";
 import AddButton from "../add-button";
 import { Form, Formik } from "formik";
@@ -13,6 +13,8 @@ import { optionsList } from "../../../features/options/optionsSlice";
 import { child, push, ref, set } from "firebase/database";
 import { db } from "../../../utils/firebase";
 import { addItem } from "../../../features/items/itemsSlice";
+import { Toaster, toast } from "sonner";
+import { FaCheck } from "react-icons/fa";
 
 function AddItemModal() {
   const [openModal, setOpenModal] = useState(false);
@@ -43,6 +45,12 @@ function AddItemModal() {
     const newItemId = push(child(ref(db), "items")).key;
     dispatch(addItem({ id: newItemId, ...values }));
     await writeItemData(newItemId, values);
+    toast.success(
+      <div className="flex flex-row space-x-3">
+        <FaCheck className="h-5 w-5 text-green-600 dark:text-green-500" />
+        <Label>Add Item Successfull</Label>
+      </div>
+    );
     actions.resetForm();
   }
 
@@ -94,6 +102,7 @@ function AddItemModal() {
               </Form>
             )}
           </Formik>
+          <Toaster richColors position="bottom-center" />
         </Modal.Body>
       </Modal>
     </>

@@ -1,4 +1,4 @@
-import { Card, DarkThemeToggle, Flowbite } from "flowbite-react";
+import { Card, DarkThemeToggle, Flowbite, Label } from "flowbite-react";
 import MenuTable from "./components/menu/menu-table";
 import CheckboxDropdown from "./components/ui/checkbox-dropdown";
 import AddItemModal from "./components/ui/modals/add-item-modal";
@@ -7,6 +7,8 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCategories } from "./features/categories/categoriesSlice";
 import { setOptions } from "./features/options/optionsSlice";
+import { Toaster, toast } from "sonner";
+import { FaTrash } from "react-icons/fa";
 
 function App() {
   const categories = ["Meal", "Snack", "Dessert"];
@@ -17,6 +19,15 @@ function App() {
     dispatch(setCategories(categories));
     dispatch(setOptions(options));
   }, []);
+
+  function showToastHandler() {
+    toast.error(
+      <div className="flex flex-row space-x-3">
+        <FaTrash className="h-5 w-5 text-red-600 dark:red-cyan-500" />
+        <Label>Item Deleted</Label>
+      </div>
+    );
+  }
 
   return (
     <Flowbite>
@@ -32,8 +43,9 @@ function App() {
           </div>
         </div>
         <div className="flow-root border rounded-md border-gray-300">
-          <MenuTable />
+          <MenuTable showToast={showToastHandler} />
         </div>
+        <Toaster richColors position="bottom-center" />
       </Card>
     </Flowbite>
   );
