@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Label } from "flowbite-react";
 import { HiPlus } from "react-icons/hi";
 

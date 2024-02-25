@@ -1,12 +1,21 @@
 "use client";
 
 import { Table } from "flowbite-react";
-import ItemDropdown from "../ui/item-dropdown";
-import { useSelector } from "react-redux";
-import { menuItemsList } from "../../features/items/itemsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem, menuItemsList } from "../../features/items/itemsSlice";
+import { ref, remove } from "firebase/database";
+import { db } from "../../utils/firebase";
+import DeleteItemModal from "../ui/modals/delete-item-modal";
+import EditItemModal from "../ui/modals/edit-item-modal";
 
 function MenuList() {
   const menuItems = useSelector(menuItemsList);
+  const dispatch = useDispatch();
+
+  async function deleteItemHandler(id) {
+    await remove(ref(db, `items/${id}`));
+    dispatch(deleteItem(id));
+  }
 
   if (menuItems.length === 0) {
     return (
@@ -40,7 +49,12 @@ function MenuList() {
           <Table.Cell>{item.stock}</Table.Cell>
 
           <Table.Cell>
-            <ItemDropdown />
+            <div className="flex flex-row space-x-2">
+              <EditItemModal itemData={item} />
+              <DeleteItemModal
+                deleteItemHandler={() => deleteItemHandler(item.id)}
+              />
+            </div>
           </Table.Cell>
         </Table.Row>
       ))}

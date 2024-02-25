@@ -1,9 +1,26 @@
+"use client";
+
 import { Checkbox, Dropdown, Label } from "flowbite-react";
-import { useSelector } from "react-redux";
-import { categoriesList } from "../../features/categories/categoriesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addCategoryFilter,
+  categoriesList,
+  filter,
+  removeCategoryFilter,
+} from "../../features/categories/categoriesSlice";
 
 function CategoriesList() {
   const categories = useSelector(categoriesList);
+  const categoryFilter = useSelector(filter);
+  const dispatch = useDispatch();
+
+  function checkHandler(isChecked, category) {
+    if (isChecked) {
+      dispatch(addCategoryFilter(category));
+    } else {
+      dispatch(removeCategoryFilter(category));
+    }
+  }
 
   const DropdownItemList = () =>
     categories.map((category, index) => (
@@ -13,7 +30,10 @@ function CategoriesList() {
             id={category}
             className="dark:border-white"
             color="gray"
-            onChange={(e) => console.log(e.target)}
+            checked={
+              Object.values(categoryFilter).includes(category) ? true : false
+            }
+            onChange={(e) => checkHandler(e.target.checked, category)}
           />
           <Label htmlFor={category}>{category}</Label>
         </div>

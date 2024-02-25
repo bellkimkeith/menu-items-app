@@ -1,7 +1,7 @@
 import { Card, DarkThemeToggle, Flowbite } from "flowbite-react";
 import MenuTable from "./components/menu/menu-table";
 import CheckboxDropdown from "./components/ui/checkbox-dropdown";
-import AddItemModal from "./components/ui/add-item-modal";
+import AddItemModal from "./components/ui/modals/add-item-modal";
 
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -27,7 +27,7 @@ function App() {
           </h5>
           <div className="flex flex-row items-center space-x-4">
             <AddItemModal />
-            {/* <CheckboxDropdown /> */}
+            <CheckboxDropdown />
             <DarkThemeToggle className="hover:text-black dark:hover:text-white py-3 px-3 border-2 border-gray-200 dark:border-gray-600" />
           </div>
         </div>

@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Simple Menu Item CRUD App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application used to add, view, edit and delete items in your menu, built with React, Redux Toolkit, JavaScript, Formik with Yup, TailwindCSS with Flowbite for React.
 
-## Available Scripts
+## Project Screen Shots Light and Dark
 
-In the project directory, you can run:
+<img src="screenshots/HomePage-Light.png" style="border-radius: 10px;">
+<img src="screenshots/HomePage-Dark.png" style="border-radius: 10px;">
+<img src="screenshots/AddOrEdit-Dark.png" style="border-radius: 10px;">
+<img src="screenshots/Delete-Light.png" style="border-radius: 10px;">
+<img src="screenshots/Filter-Light.png" style="border-radius: 10px;">
 
-### `npm start`
+## Installation and Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Installation:
 
-### `npm test`
+`npm install`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To Start Server:
 
-### `npm run build`
+`npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To Visit App:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`localhost:3000/`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Important 3rd Party libraries used
 
-### `npm run eject`
+- Flowbite and Flowbite React (https://www.flowbite-react.com/docs/getting-started/quickstart)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Redux and Redux Toolkit (https://redux-toolkit.js.org/tutorials/quick-start)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Formik and Yup (https://formik.org/docs/tutorial) (https://formik.org/docs/guides/validation)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Firebase Realtime Database (https://firebase.google.com/docs/database/web/start)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Reflections
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Improved my understading with state management both local(useState) and global(redux toolkit).
+- Been using mostly Bootstrap but came to like Tailwind now and able to discover Flowbite for react for easier app design and theme.
+- It was hard to manage forms but thankfully found Formik and Yup to validate the inputs and stop my tears in managing form state.
+- Firebse realtime database is awesome for projects like this or maybe even bigger ones but needs to properly structure the data which I will look more closely next time.

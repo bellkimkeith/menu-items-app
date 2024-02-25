@@ -2,21 +2,23 @@
 
 import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
-import AddButton from "./add-button";
+import AddButton from "../add-button";
 import { Form, Formik } from "formik";
-import ItemSchema from "../../schemas";
-import CustomInput from "../form/custom-input";
-import CustomSelect from "../form/custom-select";
-import { useSelector } from "react-redux";
-import { categoriesList } from "../../features/categories/categoriesSlice";
-import { optionsList } from "../../features/options/optionsSlice";
+import ItemSchema from "../../../schemas";
+import CustomInput from "../../form/custom-input";
+import CustomSelect from "../../form/custom-select";
+import { useDispatch, useSelector } from "react-redux";
+import { categoriesList } from "../../../features/categories/categoriesSlice";
+import { optionsList } from "../../../features/options/optionsSlice";
 import { child, push, ref, set } from "firebase/database";
-import { db } from "../../utils/firebase";
+import { db } from "../../../utils/firebase";
+import { addItem } from "../../../features/items/itemsSlice";
 
 function AddItemModal() {
   const [openModal, setOpenModal] = useState(false);
   const categories = useSelector(categoriesList);
   const options = useSelector(optionsList);
+  const dispatch = useDispatch();
 
   function onCloseModal() {
     setOpenModal(false);
@@ -39,8 +41,9 @@ function AddItemModal() {
 
   async function onSubmit(values, actions) {
     const newItemId = push(child(ref(db), "items")).key;
+    dispatch(addItem({ id: newItemId, ...values }));
     await writeItemData(newItemId, values);
-    await actions.resetForm();
+    actions.resetForm();
   }
 
   return (

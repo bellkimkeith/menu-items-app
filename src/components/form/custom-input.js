@@ -1,3 +1,5 @@
+"use client";
+
 import { Label, TextInput } from "flowbite-react";
 import { useField } from "formik";
 
