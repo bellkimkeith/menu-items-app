@@ -40,7 +40,7 @@ To Visit App:
 
 ## Reflections
 
-- Improved my understading with state management both local(useState) and global(redux toolkit).
+- Improved my understanding with state management both local(useState) and global(redux toolkit).
 - Been using mostly Bootstrap but came to like Tailwind now and able to discover Flowbite for react for easier app design and theme.
 - It was hard to manage forms but thankfully found Formik and Yup to validate the inputs and stop my tears in managing form state.
 - Firebse realtime database is awesome for projects like this or maybe even bigger ones but needs to properly structure the data which I will look more closely next time.
